@@ -3,6 +3,7 @@ package com.example.B2B.Services;
 
 import com.example.B2B.Entities.contratEntity;
 
+import com.example.B2B.Exceptions.ContratException;
 import com.example.B2B.Repositories.contratRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,13 +22,19 @@ public class ContratServiceImpl implements ContratService {
 
     @Override
     public contratEntity createContrat(contratEntity contrat) {
+        // Exemple de vérification et de lancement d'une exception
+        if (contrat.getDureeContrat() <= 0) {
+            throw new ContratException("La durée du contrat doit être supérieure à zéro.");
+        }
+
         return contratRepository.save(contrat);
     }
 
     @Override
     public contratEntity getContratById(long id) {
-        return contratRepository.findById(id).orElse(null);
+        return contratRepository.findById(id).orElseThrow(() -> new ContratException("Contrat introuvable avec l'ID : " + id));
     }
+
 
     @Override
     public List<contratEntity> getAllContrats() {

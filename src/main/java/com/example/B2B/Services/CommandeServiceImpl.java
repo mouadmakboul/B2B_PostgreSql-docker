@@ -3,6 +3,7 @@ package com.example.B2B.Services;
 
 import com.example.B2B.Entities.commandeEntity;
 
+import com.example.B2B.Exceptions.CommandeException;
 import com.example.B2B.Repositories.commandeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,12 +22,18 @@ public class CommandeServiceImpl implements CommandeService {
 
     @Override
     public commandeEntity createCommande(commandeEntity commande) {
+        // Exemple de vérification et de lancement d'une exception
+        if (commande.getMontantTotal() <= 0) {
+            throw new CommandeException("Le montant total de la commande doit être supérieur à zéro.");
+        }
+
         return commandeRepository.save(commande);
     }
 
+
     @Override
     public commandeEntity getCommandeById(long id) {
-        return commandeRepository.findById(id).orElse(null);
+        return commandeRepository.findById(id).orElseThrow(() -> new CommandeException("Commande introuvable avec l'ID : " + id));
     }
 
     @Override
@@ -46,8 +53,7 @@ public class CommandeServiceImpl implements CommandeService {
 
     @Override
     public List<commandeEntity> getCommandesByEntreprise(long entrepriseId) {
-        // Implémentez la logique pour récupérer les commandes par entreprise
-        // Vous devrez probablement avoir une colonne "entreprise_id" dans votre table commandeEntity
+
         return commandeRepository.findByEntrepriseId(entrepriseId);
     }
 }

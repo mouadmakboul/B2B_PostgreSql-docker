@@ -3,6 +3,7 @@ package com.example.B2B.Services;
 
 import com.example.B2B.Entities.productEntity;
 
+import com.example.B2B.Exceptions.ProductException;
 import com.example.B2B.Repositories.productRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,12 +22,16 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public productEntity createProduct(productEntity product) {
+        // Exemple de vérification et de lancement d'une exception
+        if (product.getPrix() <= 0) {
+            throw new ProductException("Le prix du produit doit être supérieur à zéro.");
+        }
+
         return productRepository.save(product);
     }
-
     @Override
     public productEntity getProductById(long id) {
-        return productRepository.findById(id).orElse(null);
+        return productRepository.findById(id).orElseThrow(() -> new ProductException("Produit introuvable avec l'ID : " + id));
     }
 
     @Override

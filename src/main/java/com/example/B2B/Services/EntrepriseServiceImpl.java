@@ -2,6 +2,7 @@ package com.example.B2B.Services;
 
 import com.example.B2B.Entities.entrepriseEntity;
 
+import com.example.B2B.Exceptions.EntrepriseException;
 import com.example.B2B.Repositories.entrepriseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class EntrepriseServiceImpl implements EntrepriseService {
 
     @Override
     public entrepriseEntity getEntrepriseById(long id) {
-        return entrepriseRepository.findById(id).orElse(null);
+        return entrepriseRepository.findById(id).orElseThrow(() -> new EntrepriseException("Entreprise introuvable avec l'ID : " + id));
     }
 
     @Override

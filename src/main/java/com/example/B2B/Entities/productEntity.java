@@ -21,8 +21,9 @@ public class productEntity implements Serializable {
     @Column(name = "product_id", nullable = false)
     private long id;
     private String Description;
-    private String prix;
+    private int prix;
     private String Quantite;
+
     @ManyToOne
     @JoinColumn(name = "entreprise_id")
     private entrepriseEntity entreprise;

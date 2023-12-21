@@ -21,7 +21,7 @@ public class contratEntity implements Serializable {
 
     private String ChifrreAffaire;
 
-    private String DureeContrat;
+    private int DureeContrat;
 
     @ManyToOne
     @JoinColumn(name = "enterprise_id")

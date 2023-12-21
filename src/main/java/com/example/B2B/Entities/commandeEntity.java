@@ -20,6 +20,7 @@ public class commandeEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "commande_id", nullable = false)
     private long id;
+    private long MontantTotal;
 
     @ManyToOne
     @JoinColumn(name = "entreprise_id")
