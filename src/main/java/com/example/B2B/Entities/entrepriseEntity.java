@@ -1,5 +1,4 @@
 package com.example.B2B.Entities;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -17,7 +16,7 @@ import java.util.List;
 @Entity
 @Builder
 
-public class entrepriseEntity {
+public class entrepriseEntity  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Entreprise_id", nullable = false)
@@ -46,7 +45,35 @@ public class entrepriseEntity {
     @OneToMany(mappedBy = "entreprise" ,fetch = FetchType.LAZY)
     private List<contratEntity> contrats;
 
+    public String getNom() {
+        return Nom;
+    }
 
+    public void setNom(String nom) {
+        Nom = nom;
+    }
 
+    public String getAdresse() {
+        return Adresse;
+    }
 
+    public void setAdresse(String adresse) {
+        Adresse = adresse;
+    }
+
+    public Number getTel() {
+        return Tel;
+    }
+
+    public void setTel(Number tel) {
+        Tel = tel;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
 }

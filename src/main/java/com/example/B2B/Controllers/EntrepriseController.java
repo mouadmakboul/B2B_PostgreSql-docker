@@ -3,12 +3,16 @@ package com.example.B2B.Controllers;
 import com.example.B2B.Entities.entrepriseEntity;
 import com.example.B2B.Services.EntrepriseService;
 import com.example.B2B.Exceptions.EntrepriseException;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.validation.Validator;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/entreprises")
@@ -21,6 +25,7 @@ public class EntrepriseController {
         this.entrepriseService = entrepriseService;
     }
 
+
     @PostMapping
     public ResponseEntity<entrepriseEntity> createEntreprise(@RequestBody entrepriseEntity entreprise) {
         try {
@@ -31,15 +36,21 @@ public class EntrepriseController {
         }
     }
 
+
     @GetMapping("/{id}")
-    public ResponseEntity<entrepriseEntity> getEntrepriseById(@PathVariable long id) {
+    public ResponseEntity<?> getEntrepriseById(@PathVariable long id) {
         try {
             entrepriseEntity entreprise = entrepriseService.getEntrepriseById(id);
             return new ResponseEntity<>(entreprise, HttpStatus.OK);
         } catch (EntrepriseException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            String errorMessage = "Entreprise introuvable avec l'ID : " + id;
+            return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
         }
     }
+
+
+
+
 
     @GetMapping
     public ResponseEntity<List<entrepriseEntity>> getAllEntreprises() {
