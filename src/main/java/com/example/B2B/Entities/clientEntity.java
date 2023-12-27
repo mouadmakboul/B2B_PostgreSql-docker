@@ -24,9 +24,7 @@ public class clientEntity {
     private String nom_client;
     public String adresse_client;
 
-    @ManyToOne
-    @JoinColumn(name = "entreprise_id")
-    private entrepriseEntity entreprise;
+
 
     @OneToMany(mappedBy = "client" ,fetch = FetchType.LAZY)
     private List<representantEntity> representants;

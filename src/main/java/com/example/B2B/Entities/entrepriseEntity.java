@@ -32,12 +32,7 @@ public class entrepriseEntity  {
     @Email(message = "Le champ 'Email' doit être une adresse email valide.")
     @NotBlank(message = "Le champ 'Email' ne peut pas être vide.")
     private String Email;
-    @OneToMany(mappedBy = "entreprise" ,fetch = FetchType.LAZY)
-    private List<clientEntity> client;
 
-
-    @OneToMany(mappedBy = "entreprise" ,fetch = FetchType.LAZY)
-    private List<commandeEntity> commandes;
 
     @OneToMany(mappedBy = "entreprise" ,fetch = FetchType.LAZY)
     private List<productEntity> products;

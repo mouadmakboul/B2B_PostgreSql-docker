@@ -12,5 +12,5 @@ public interface CommandeService {
     void deleteCommande(long id);
 
     // Ajoutez d'autres méthodes spécifiques au besoin
-    List<commandeEntity> getCommandesByEntreprise(long entrepriseId);
+
 }

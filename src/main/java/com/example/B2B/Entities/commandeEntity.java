@@ -15,16 +15,13 @@ import java.util.List;
 @Entity
 @Builder
 
-public class commandeEntity implements Serializable {
+public class commandeEntity  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "commande_id", nullable = false)
     private long id;
-    private long MontantTotal;
-
-    @ManyToOne
-    @JoinColumn(name = "entreprise_id")
-    private entrepriseEntity entreprise;
+    private long PrixTotal;
+    private long Quantite_commande;
 
     @OneToMany(mappedBy = "commande" ,fetch = FetchType.LAZY)
     private List<lignecommandeEntity> lignecommandes;

@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 
 public interface commandeRepo extends JpaRepository<commandeEntity, Long> {
-    List<commandeEntity> findByEntrepriseId(long entrepriseId);
+
 }

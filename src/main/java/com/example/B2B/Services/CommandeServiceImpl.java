@@ -23,7 +23,7 @@ public class CommandeServiceImpl implements CommandeService {
     @Override
     public commandeEntity createCommande(commandeEntity commande) {
         // Exemple de vérification et de lancement d'une exception
-        if (commande.getMontantTotal() <= 0) {
+        if (commande.getPrixTotal() <= 0) {
             throw new CommandeException("Le montant total de la commande doit être supérieur à zéro.");
         }
 
@@ -51,9 +51,5 @@ public class CommandeServiceImpl implements CommandeService {
         commandeRepository.deleteById(id);
     }
 
-    @Override
-    public List<commandeEntity> getCommandesByEntreprise(long entrepriseId) {
 
-        return commandeRepository.findByEntrepriseId(entrepriseId);
-    }
 }

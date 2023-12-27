@@ -3,12 +3,16 @@ package com.example.B2B.Controllers;
 import com.example.B2B.Entities.commandeEntity;
 import com.example.B2B.Services.CommandeService;
 import com.example.B2B.Exceptions.CommandeException;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+
 
 @RestController
 @RequestMapping("/api/commandes")
@@ -68,13 +72,5 @@ public class CommandeController {
         }
     }
 
-    @GetMapping("/by-entreprise/{entrepriseId}")
-    public ResponseEntity<List<commandeEntity>> getCommandesByEntreprise(@PathVariable long entrepriseId) {
-        try {
-            List<commandeEntity> commandes = commandeService.getCommandesByEntreprise(entrepriseId);
-            return new ResponseEntity<>(commandes, HttpStatus.OK);
-        } catch (CommandeException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+
 }
