@@ -1,3 +1,5 @@
+
+
 package com.example.B2B.Entities;
 
 import jakarta.persistence.*;
@@ -14,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Builder
+
 
 public class commandeEntity  {
     @Id

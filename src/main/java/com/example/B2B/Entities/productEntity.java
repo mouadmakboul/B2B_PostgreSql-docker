@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -36,8 +37,12 @@ public class productEntity implements Serializable {
     private lignecommandeEntity ligne_commande;
 
 
-    @ManyToOne
-    @JoinColumn(name = "catalogue")
-    private catalogueEntity catalogue;
+    @ManyToMany
+    @JoinTable(
+            name = "Remise",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "catalogue_id")
+    )
+    private Set<catalogueEntity> catalogues;
 
 }

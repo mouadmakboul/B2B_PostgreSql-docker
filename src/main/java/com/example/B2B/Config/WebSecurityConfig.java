@@ -5,6 +5,7 @@ import com.example.B2B.Jwt.AuthEntryPointJwt;
 import com.example.B2B.Jwt.AuthTokenFilter;
 import com.example.B2B.Services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 //@EnableWebSecurity
@@ -30,6 +32,7 @@ public class WebSecurityConfig {
 
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
+
 
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter(){
@@ -64,6 +67,7 @@ public class WebSecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                                 auth.requestMatchers("/api/auth/**").permitAll()
+                                        .requestMatchers("/actuator/**").permitAll()
 
                                         .anyRequest().authenticated()
                 );
@@ -75,4 +79,5 @@ public class WebSecurityConfig {
 
         return http.build();
     }
-}
+
+    }

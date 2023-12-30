@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Builder
@@ -22,6 +23,6 @@ public class catalogueEntity {
     @OneToOne(mappedBy = "catalogue", cascade = CascadeType.ALL)
     private contratEntity contrat;
 
-    @OneToMany(mappedBy = "catalogue" ,fetch = FetchType.LAZY)
-    private List<productEntity> produits;
+    @ManyToMany(mappedBy = "catalogues")
+    private Set<productEntity> produits;
 }
