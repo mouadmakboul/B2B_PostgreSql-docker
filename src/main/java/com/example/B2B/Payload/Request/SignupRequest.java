@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class SignupRequest {
 
-    @Size(min = 3, max = 20)
+   // @Size(min = 3, max = 20)
     private String username;
 
 //    @NotBlank
@@ -21,7 +21,7 @@ public class SignupRequest {
 
 
 
-    @Email
+    //@Email
     private String email;
 
     private Set<String> role;
