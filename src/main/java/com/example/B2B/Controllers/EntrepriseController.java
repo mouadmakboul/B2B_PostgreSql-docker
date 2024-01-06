@@ -16,6 +16,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/entreprises")
+@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS})
 public class EntrepriseController {
 
     private final EntrepriseService entrepriseService;

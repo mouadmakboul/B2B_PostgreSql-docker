@@ -27,7 +27,7 @@ public class entrepriseEntity  {
     private String Adresse;
 
     @NotNull(message = "Le champ 'Tel' ne peut pas être nul.")
-    private Number Tel;
+    private String Tel;
     @jakarta.validation.constraints.Email
     @Email(message = "Le champ 'Email' doit être une adresse email valide.")
     @NotBlank(message = "Le champ 'Email' ne peut pas être vide.")
@@ -56,11 +56,11 @@ public class entrepriseEntity  {
         Adresse = adresse;
     }
 
-    public Number getTel() {
+    public String getTel() {
         return Tel;
     }
 
-    public void setTel(Number tel) {
+    public void setTel(String tel) {
         Tel = tel;
     }
 

@@ -7,8 +7,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
+
 @SpringBootApplication
 @EnableTransactionManagement
+
 @CrossOrigin(origins = "http://localhost:4200")
 
 public class B2BApplication {
@@ -17,4 +19,6 @@ public class B2BApplication {
 		SpringApplication.run(B2BApplication.class, args);
 	}
 
+
 }
+
