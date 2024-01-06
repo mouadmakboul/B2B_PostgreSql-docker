@@ -3,8 +3,7 @@ package com.example.B2B.Controllers;
 import com.example.B2B.Entities.entrepriseEntity;
 import com.example.B2B.Services.EntrepriseService;
 import com.example.B2B.Exceptions.EntrepriseException;
-import jakarta.validation.ConstraintViolation;
-import jakarta.validation.Validation;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

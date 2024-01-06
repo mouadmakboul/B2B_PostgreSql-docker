@@ -26,6 +26,12 @@ public class commandeEntity  {
     private long PrixTotal;
     private long Quantite_commande;
 
+    public commandeEntity(long id, long prixTotal, long quantite_commande) {
+        this.id = id;
+        PrixTotal = prixTotal;
+        Quantite_commande = quantite_commande;
+    }
+
     @OneToMany(mappedBy = "commande" ,fetch = FetchType.LAZY)
     private List<lignecommandeEntity> lignecommandes;
 
