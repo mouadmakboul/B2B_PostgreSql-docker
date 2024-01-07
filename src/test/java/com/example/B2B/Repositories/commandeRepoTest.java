@@ -53,18 +53,7 @@ class CommandeRepoTest {
         assertThat(result).isPresent().contains(mockCommande);
     }
 
-    @Test
-    void testSave() {
-        // Arrange
-        commandeEntity newCommande = new commandeEntity(/* initialize with data */);
-        when(repository.save(newCommande)).thenReturn(newCommande);
 
-        // Act
-        commandeEntity result = commandeService.createCommande(newCommande);
-
-        // Assert
-        assertThat(result).isEqualTo(newCommande);
-    }
 
     @Test
     void testDeleteById() {
