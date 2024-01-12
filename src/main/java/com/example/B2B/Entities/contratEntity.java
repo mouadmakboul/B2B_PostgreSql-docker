@@ -19,9 +19,16 @@ public class contratEntity implements Serializable {
     @Column(name = "contrat_id", nullable = false)
     private long id;
 
+    private String nom;
+
     private String ChifrreAffaire;
 
     private int DureeContrat;
+
+    private String frozen;
+
+
+
 
     @ManyToOne
     @JoinColumn(name = "enterprise_id")

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    image: codedecode25/dockerdemoapril:0.0.1
+    ports:
+      - "8080:8080"
+    environment:
+      - spring.datasource.url=spring.datasource.url=jdbc:mysql://db:3306/B2test?createDatabaseIfNotExist=true&useSSL=false
+
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+
+  db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=your_root_password
+      - MYSQL_DATABASE=B2test
+      - MYSQL_PASSWORD=your_user_password
+
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
