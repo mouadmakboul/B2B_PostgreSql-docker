@@ -22,9 +22,13 @@ public class clientEntity {
     private long id;
 
     private String nom_client;
-    public String adresse_client;
+    private String adresse_client;
 
-
+    public clientEntity(long id, String nom_client, String adresse_client) {
+        this.id = id;
+        this.nom_client = nom_client;
+        this.adresse_client = adresse_client;
+    }
 
     @OneToMany(mappedBy = "client" ,fetch = FetchType.LAZY)
     private List<representantEntity> representants;
