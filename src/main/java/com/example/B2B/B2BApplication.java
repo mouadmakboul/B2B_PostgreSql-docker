@@ -1,7 +1,11 @@
 package com.example.B2B;
 
+import com.example.B2B.Entities.ERole;
+import com.example.B2B.Entities.Role;
 import com.example.B2B.Entities.clientEntity;
+import com.example.B2B.Repositories.RoleRepo;
 import com.example.B2B.Repositories.clientRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +18,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "http://localhost:4200")
 public class B2BApplication {
 
+	@Autowired
+	private RoleRepo roleRepo;
+
 	public static void main(String[] args) {
 		SpringApplication.run(B2BApplication.class, args);
 	}
@@ -21,13 +28,15 @@ public class B2BApplication {
 	@Bean
 	public CommandLineRunner init(clientRepo cr) {
 		return args -> {
-			clientEntity client = clientEntity.builder()
-					.id(1L)
-					.nom_client("Nom du client")
-					.adresse_client("Adresse du client")
-					.build();
+			// Your existing client initialization code
 
-			cr.save(client);
+			// Initialize roles
+			Role roleAdmin = new Role(ERole.ROLE_ADMIN);
+			Role roleUser = new Role(ERole.ROLE_USER);
+
+			roleRepo.save(roleAdmin);
+			roleRepo.save(roleUser);
 		};
 	}
+
 }
