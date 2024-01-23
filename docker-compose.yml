@@ -1,29 +1,27 @@
 version: '3.8'
 
 services:
-  app:
-    image: codedecode25/dockerdemoapril:0.0.1
+  db:
+    image: postgres:latest
     ports:
-      - "8080:8080"
+      - "5432:5432"
     environment:
-      - spring.datasource.url=spring.datasource.url=jdbc:mysql://db:3306/B2test?createDatabaseIfNotExist=true&useSSL=false
-
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=
-    depends_on:
-      - db
+      - POSTGRES_DB=B2test
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=jaimeislam
     networks:
       - mynetwork
 
-  db:
-    image: mysql:latest
+  app:
+    image: codedecode25/dockerdemoapril:0.0.1
     ports:
-      - "3306:3306"
+      - "2000:2000"
     environment:
-      - MYSQL_ROOT_PASSWORD=your_root_password
-      - MYSQL_DATABASE=B2test
-      - MYSQL_PASSWORD=your_user_password
-
+      - spring.datasource.url=jdbc:postgresql://db:5432/B2test
+      - spring.datasource.username=postgres
+      - spring.datasource.password=jaimeislam
+    depends_on:
+      - db
     networks:
       - mynetwork
 
