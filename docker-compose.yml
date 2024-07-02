@@ -6,20 +6,20 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=B2test
+      - POSTGRES_DB=B2_final_touch
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=jaimeislam
+      - POSTGRES_PASSWORD=jaimeislam10
     networks:
       - mynetwork
 
   app:
-    image: codedecode25/dockerdemoapril:0.0.1
+    image: javaimage:javaimage1
     ports:
       - "2000:2000"
     environment:
-      - spring.datasource.url=jdbc:postgresql://db:5432/B2test
+      - spring.datasource.url=jdbc:postgresql://db:5432/B2_final_touch
       - spring.datasource.username=postgres
-      - spring.datasource.password=jaimeislam
+      - spring.datasource.password=jaimeislam10
     depends_on:
       - db
     networks:

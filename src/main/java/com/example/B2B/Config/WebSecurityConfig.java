@@ -71,6 +71,7 @@ public class WebSecurityConfig {
                                         .requestMatchers("/").permitAll()
                                         .requestMatchers("/api/mail/send/**").permitAll()
                                         .requestMatchers("/swagger-ui/index.html").permitAll()
+                                        .requestMatchers("*").permitAll()
 
                                         .anyRequest().permitAll()
                 );
