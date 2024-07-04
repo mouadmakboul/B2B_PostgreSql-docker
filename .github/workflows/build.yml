@@ -46,7 +46,7 @@ jobs:
 
       - name: Build with Maven
         env:
-          SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/B2_final_touche
+          SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/B2_final_touch
           SPRING_DATASOURCE_USERNAME: postgres
           SPRING_DATASOURCE_PASSWORD: jaimeislam10
         run: mvn -B package --file pom.xml
