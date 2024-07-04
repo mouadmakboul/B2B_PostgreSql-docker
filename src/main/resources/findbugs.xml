@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+
+    <!-- Exemples de règles de filtrage -->
+
+    <!-- Exclure certaines classes ou packages -->
+    <Match>
+        <Class name="~.*Test" />
+        <Class name="~.*Mock" />
+    </Match>
+
+    <!-- Exclure certains types de bugs -->
+    <Match>
+        <Bug code="NP" />
+        <Bug pattern="DLS_DEAD_LOCAL_STORE" />
+    </Match>
+
+    <!-- Inclure uniquement des bugs spécifiques -->
+    <Match>
+        <Bug category="SECURITY" />
+        <Bug category="BAD_PRACTICE" />
+    </Match>
+
+    <!-- Inclure uniquement des bugs avec une priorité élevée -->
+    <Match>
+        <Priority value="1" />
+    </Match>
+
+</FindBugsFilter>
