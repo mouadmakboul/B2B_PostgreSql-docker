@@ -17,9 +17,9 @@ services:
     ports:
       - "2000:2000"
     environment:
-      - spring.datasource.url=jdbc:postgresql://db:5432/B2_final_touch
-      - spring.datasource.username=postgres
-      - spring.datasource.password=jaimeislam10
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/B2_final_touch
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=jaimeislam10
     depends_on:
       - db
     networks:
