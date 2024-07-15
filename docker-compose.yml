@@ -1,27 +1,27 @@
 version: '3.8'
 
 services:
-  db:
+  dibi:
     image: postgres:latest
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=B2_final_touch
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=jaimeislam10
+      - POSTGRES_DB=B2Bh
+      - POSTGRES_USER=mouade
+      - POSTGRES_PASSWORD=mouade
     networks:
       - mynetwork
 
-  app:
-    image: javaimage:javaimage1
+  chantan:
+    image: springboot
     ports:
       - "2000:2000"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/B2_final_touch
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=jaimeislam10
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://dibi:5432/B2Bh
+      - SPRING_DATASOURCE_USERNAME=mouade
+      - SPRING_DATASOURCE_PASSWORD=mouade
     depends_on:
-      - db
+      - dibi
     networks:
       - mynetwork
 
