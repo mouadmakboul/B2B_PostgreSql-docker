@@ -13,7 +13,7 @@ services:
       - mynetwork
 
   chantan:
-    image: soutenanceimage
+    image: nharmaayoussefe
     ports:
       - "2000:2000"
     environment:

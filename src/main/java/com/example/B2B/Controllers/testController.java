@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 
 public class testController {
-    @GetMapping("/")
+    @GetMapping
     public String returnHtml() {
         String htmlContent = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
