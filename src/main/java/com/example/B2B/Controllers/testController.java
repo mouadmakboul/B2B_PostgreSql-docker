@@ -22,7 +22,7 @@ public class testController {
                 "    <h1>PR MERIEM CHERGUI</h1>\n" +
                 "    <h1>PR SAYOUTI</h1>\n" +
                 "    <h1>PR DAOUIDI</h1>\n" +
-                "    <p>Merci pour votre attention.</p>\n" +
+                "    <p>Merci pour votre attention ...</p>\n" +
                 "</body>\n" +
                 "</html>";
         return htmlContent;
