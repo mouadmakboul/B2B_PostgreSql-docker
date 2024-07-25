@@ -13,7 +13,7 @@ services:
       - mynetwork
 
   chantan:
-    image: imagesoutenance
+    image: javasoutenance
     ports:
       - "2000:2000"
     environment:
