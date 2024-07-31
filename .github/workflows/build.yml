@@ -24,7 +24,8 @@ jobs:
           --health-retries=5
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3
@@ -40,7 +41,7 @@ jobs:
               echo "PostgreSQL is ready"
               break
             fi
-            echo "Waiting for PostgreSQL loading..."
+            echo "Waiting for PostgreSQL to load..."
             sleep 2
           done
 
@@ -51,3 +52,8 @@ jobs:
           SPRING_DATASOURCE_PASSWORD: jaimeislam10
         run: mvn -B package --file pom.xml
 
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.TOKEN }}
+          SONAR_HOST_URL: 'https://sonarcloud.io/'
