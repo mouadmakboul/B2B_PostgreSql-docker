@@ -59,7 +59,9 @@ jobs:
             -Dsonar.projectKey=mouadmakboul_B2B_PostgreSql-docker
             -Dsonar.organization=mouadmakboul
             -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.java.binaries=target/classes
         env:
           SONAR_TOKEN: ${{ secrets.TOKEN }}
+
 
 
