@@ -17,6 +17,7 @@
 		<java.version>17</java.version>
 
 		<sonar.projectKey>mouadmakboul</sonar.projectKey> <!-- Votre clé de projet -->
+		<sonar.organization>mouadmakboul</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
 		<!-- Utilisation de la variable d'environnement pour le token -->
