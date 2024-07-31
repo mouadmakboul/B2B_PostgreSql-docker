@@ -15,6 +15,11 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
+
+		<sonar.projectKey>mouadmakboul</sonar.projectKey> <!-- Votre clé de projet -->
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
+		<!-- Utilisation de la variable d'environnement pour le token -->
 		
 	</properties>
 	<dependencies>
@@ -273,6 +278,11 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.9.0.2155</version>
 			</plugin>
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>

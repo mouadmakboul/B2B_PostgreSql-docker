@@ -50,3 +50,8 @@ jobs:
           SPRING_DATASOURCE_USERNAME: postgres
           SPRING_DATASOURCE_PASSWORD: jaimeislam10
         run: mvn -B package --file pom.xml
+
+      - name: SonarCloud Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Assurez-vous d'ajouter le token dans les secrets de votre dépôt
+        run: mvn sonar:sonar

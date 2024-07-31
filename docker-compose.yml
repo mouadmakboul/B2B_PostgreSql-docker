@@ -4,7 +4,7 @@ services:
   dibi:
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       - POSTGRES_DB=B2Bh
       - POSTGRES_USER=mouade
