@@ -52,27 +52,15 @@ jobs:
           SPRING_DATASOURCE_PASSWORD: jaimeislam10
         run: mvn -B package --file pom.xml
 
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarqube-scan-action@master
-        with:
-          args: >
-            -Dsonar.projectKey=mouadmakboul_B2B_PostgreSql-docker
-            -Dsonar.organization=mouadmakboul
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.java.binaries=target/classes
-        env:
-          SONAR_TOKEN: ${{ secrets.TOKEN }}
-
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
           languages: java
-          # If you wish to specify custom queries, you can do so here or in a config file.
-          # queries: ./path/to/local/query, your-org/your-repo/queries@main
+
+      - name: Build with Maven (for CodeQL)
+        run: mvn -B compile --file pom.xml
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         with:
           category: '/language:java'
-        env:
-          CODEQL_WORKFLOW_PATH: .github/workflows/build.yml
