@@ -56,7 +56,7 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: java
-          database-location: /home/runner/work/_temp/codeql_databases
+
 
       - name: Build for CodeQL
         run: mvn -B package --file pom.xml
